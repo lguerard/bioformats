@@ -903,6 +903,11 @@ public class ND2Handler extends BaseHandler {
       else if (key.equals("sDate")) {
         date = DateTools.formatDate(value, DATE_FORMAT);
       }
+      else if (key.startsWith("TextInfoItem_9")) {
+        day_date = value.split("_9")[1];
+        time_date = value;
+        date = DateTools.formatDate(day_date + "T" + time_date, DATE_FORMAT);
+      }
       else if (key.equals("Name") && channelNames.size() < ms0.sizeC) {
         channelNames.add(value);
       }
